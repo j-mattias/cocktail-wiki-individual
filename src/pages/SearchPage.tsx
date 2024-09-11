@@ -1,3 +1,13 @@
+import { Search } from "../components";
+import { SearchContextProvider } from "../contexts";
+
 export function SearchPage() {
-  return <div>SearchPage</div>;
+  return (
+    <section className="search-page">
+      <h1>Search Cocktail</h1>
+      <SearchContextProvider>
+        <Search />
+      </SearchContextProvider>
+    </section>
+  );
 }
