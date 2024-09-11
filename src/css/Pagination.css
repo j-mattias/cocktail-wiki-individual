@@ -1,0 +1,22 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  
+  button {
+
+    border: 1px solid #FFDEC0;
+    background-color: #00000000;
+    color: white;
+    font-weight: 600;
+    
+    &.activePage {
+      background-color: #FFDEC0;
+      color: black;
+    }
+
+    &:hover {
+      background-color: rgba(255, 222, 192, 0.5);
+    }
+  }
+}

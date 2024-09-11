@@ -1,4 +1,4 @@
-import { Search } from "../components";
+import { ListResults, Search } from "../components";
 import { SearchContextProvider } from "../contexts";
 
 export function SearchPage() {
@@ -7,6 +7,7 @@ export function SearchPage() {
       <h1>Search Cocktail</h1>
       <SearchContextProvider>
         <Search />
+        <ListResults />
       </SearchContextProvider>
     </section>
   );

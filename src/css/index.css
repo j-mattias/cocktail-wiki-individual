@@ -1,7 +1,10 @@
 @import url("./App.css");
 @import url("./CocktailCard.css");
 @import url("./Header.css");
+@import url("./ListResults.css");
 @import url("./Search.css");
+@import url("./SearchPage.css");
+@import url("./Pagination.css");
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
