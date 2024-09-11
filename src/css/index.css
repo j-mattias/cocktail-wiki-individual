@@ -1,4 +1,5 @@
-@import url("./css/App.css");
+@import url("./App.css");
+@import url("./Header.css");
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -6,22 +7,34 @@
   background-color: #242424;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 a {
   font-weight: 500;
-  color: #646cff;
+  color: rgb(250, 229, 190);
   text-decoration: inherit;
 
   &:hover {
     color: #535bf2;
   }
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 button {

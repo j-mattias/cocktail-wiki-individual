@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  width: 100%;
+  background-color: rgb(44, 44, 44);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+
+  .navbar {
+    display: flex;
+    justify-content: flex-end;
+    width: inherit;
+    
+    .navbar__link {
+      padding: 1rem;
+      font-weight: 600;
+
+      &:hover:not(.navbar__link--title) {
+        background-color: #fde38c;
+        color: rgb(27, 27, 27);
+      }
+    }
+
+    .navbar__link--title {
+      margin-right: auto;
+      color: #ffd753;
+      font-weight: 800;
+      letter-spacing: .1rem;
+    }
+
+    a.active {
+      box-shadow: inset 0 -4px 0 #fde38c;
+    }
+  }
+}
