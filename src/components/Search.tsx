@@ -17,6 +17,7 @@ export function Search() {
     // Display error if data could not be fetched
     if (!response.ok) {
       setError("Could not fetch cocktail data");
+      setSearchResults(null);
       return;
     }
 
@@ -25,6 +26,7 @@ export function Search() {
     // Display error if drink was not found
     if (!data.drinks) {
       setError(`Could not find drink ${input}`);
+      setSearchResults(null);
       return;
     }
 
