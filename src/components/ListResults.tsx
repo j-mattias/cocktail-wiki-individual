@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchContext } from "../contexts/SearchResultContext";
 import { CocktailCard, Pagination } from ".";
 
@@ -8,6 +8,10 @@ export function ListResults() {
   const { searchResults } = useSearchContext();
   const [currentPage, setCurrentPage] = useState<number>(1);
 
+  // If the searchResults change, set page to 1 so the user doesn't have to navigate back
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchResults])
 
   const results = searchResults ? searchResults : [];
 
