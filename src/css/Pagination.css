@@ -5,13 +5,13 @@
   
   button {
 
-    border: 1px solid #FFDEC0;
+    border: 1px solid var(--button-bg-col);
     background-color: #00000000;
     color: white;
     font-weight: 600;
     
     &.activePage {
-      background-color: #FFDEC0;
+      background-color: var(--button-bg-col);
       color: black;
     }
 

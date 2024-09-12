@@ -1,0 +1,12 @@
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  .go-home {
+    border: 1px solid;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+}

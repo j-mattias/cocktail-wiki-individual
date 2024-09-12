@@ -1,5 +1,6 @@
 @import url("./App.css");
 @import url("./CocktailCard.css");
+@import url("./ErrorPage.css");
 @import url("./Header.css");
 @import url("./ListResults.css");
 @import url("./Search.css");
@@ -7,9 +8,14 @@
 @import url("./Pagination.css");
 
 :root {
+  --bg-col: #242424;
+  --primary-font-col: #fde38c;
+  --offset-font-col: #fff0c0;
+  --button-bg-col: bisque;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--bg-col);
 }
 
 * {
@@ -36,11 +42,11 @@ main {
 
 a {
   font-weight: 500;
-  color: rgb(250, 229, 190);
+  color: var(--primary-font-col);
   text-decoration: inherit;
 
   &:hover {
-    color: #535bf2;
+    color: var(--offset-font-col);
   }
 }
 
@@ -51,7 +57,7 @@ img {
 }
 
 button {
-  background-color: bisque;
+  background-color: var(--button-bg-col);
   border: 2px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
