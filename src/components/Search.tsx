@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { reformatData } from "../helpers";
 import { useSearchContext } from "../contexts";
 
@@ -8,6 +8,11 @@ export function Search() {
   const [input, setInput] = useState<string>("");
   const [error, setError] = useState<string>("");
   const { setSearchResults } = useSearchContext();
+
+  // Clear out search results when component unmounts
+  useEffect(() => {
+    return () => setSearchResults(null);
+  }, [])
 
   const fetchCocktail: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
