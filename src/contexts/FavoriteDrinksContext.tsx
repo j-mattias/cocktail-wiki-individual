@@ -12,20 +12,20 @@ interface IFavoriteDrinksContext {
   setFavoriteDrinks: React.Dispatch<React.SetStateAction<TDrinkArray>>;
 }
 
-const favoriteDrinksContext = createContext<IFavoriteDrinksContext | null>(null);
+const FavoriteDrinksContext = createContext<IFavoriteDrinksContext | null>(null);
 
-export function favoriteDrinksContextProvider({ children }: IFavoriteDrinksContextProviderProps) {
+export function FavoriteDrinksContextProvider({ children }: IFavoriteDrinksContextProviderProps) {
   const [favoriteDrinks, setFavoriteDrinks] = useState<TDrinkArray>([]);
 
   return (
-    <favoriteDrinksContext.Provider value={{ favoriteDrinks, setFavoriteDrinks }}>
+    <FavoriteDrinksContext.Provider value={{ favoriteDrinks, setFavoriteDrinks }}>
       {children}
-    </favoriteDrinksContext.Provider>
+    </FavoriteDrinksContext.Provider>
   );
 }
 
 export function useFavoriteDrinksContext() {
-  const context = useContext(favoriteDrinksContext);
+  const context = useContext(FavoriteDrinksContext);
 
   // Throw error if context is used outside the provider
   if (!context) {

@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom"
 import { IDrinkReformat } from "../interfaces";
+import { FavoriteButton } from "./FavoriteButton";
 
 export function CocktailDetails() {
   const [ cocktail ] = useLoaderData() as IDrinkReformat[];
@@ -20,6 +21,7 @@ export function CocktailDetails() {
         </div>
       </div>
       <div className="cocktail-info">
+        <FavoriteButton cocktail={cocktail} />
         <h2>
           {cocktail.strDrink} ({cocktail.strCategory})
         </h2>
