@@ -1,0 +1,36 @@
+.cocktail-details {
+  display: flex;
+  gap: 2rem;
+
+  .cocktail-img-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .cocktail-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+
+      .cocktail-tag {
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        background-color: var(--button-bg-col);
+        color: black;
+      }
+    }
+  }
+
+  .cocktail-info {
+    padding: 1rem;
+    background-color: hsl(from var(--bg-col) h s calc(l + 30) / 0.2);
+    color: var(--primary-font-col);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    h2, h3 {
+      color: white;
+    }
+  }
+}
