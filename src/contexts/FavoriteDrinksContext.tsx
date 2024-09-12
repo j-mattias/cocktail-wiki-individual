@@ -1,11 +1,9 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-import { IDrinkReformat } from "../interfaces";
+import { TDrinkArray } from "../interfaces";
 
 interface IFavoriteDrinksContextProviderProps {
   children: ReactNode;
 }
-
-type TDrinkArray = IDrinkReformat[] | [];
 
 interface IFavoriteDrinksContext {
   favoriteDrinks: TDrinkArray;

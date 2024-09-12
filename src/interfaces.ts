@@ -85,3 +85,5 @@ export interface IDrinkReformat {
   dateModified: TOptionalString;
   [key: string]: TOptionalString | IDrinkIngredients[];
 }
+
+export type TDrinkArray = IDrinkReformat[] | [];

@@ -14,6 +14,9 @@ export function Header(): ReactElement {
         <NavLink className="navbar__link" to="search">
           Search
         </NavLink>
+        <NavLink className="navbar__link" to="favorites">
+          Favorites
+        </NavLink>
       </nav>
     </header>
   );

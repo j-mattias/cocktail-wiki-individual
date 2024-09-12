@@ -1,19 +1,24 @@
 import { useEffect, useState } from "react";
-import { useSearchContext } from "../contexts/SearchResultContext";
 import { CocktailCard, Pagination } from ".";
+import { TDrinkArray } from "../interfaces";
+
+type TListItems = TDrinkArray | null;
+
+interface IListResultsProps {
+  listItems: TListItems;
+}
 
 const maxResultsPerPage = 10;
 
-export function ListResults() {
-  const { searchResults } = useSearchContext();
+export function ListResults({ listItems }: IListResultsProps) {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  // If the searchResults change, set page to 1 so the user doesn't have to navigate back
+  // If the listItems change, set page to 1 so the user doesn't have to navigate back
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchResults])
+  }, [listItems])
 
-  const results = searchResults ? searchResults : [];
+  const results = listItems ? listItems : [];
 
   // Get the last and first index to use when slicing results list
   const lastItemIndex = currentPage * maxResultsPerPage;

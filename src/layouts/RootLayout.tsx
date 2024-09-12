@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Header } from "../components";
-import { FavoriteDrinksContextProvider } from "../contexts";
+import { FavoriteDrinksContextProvider, SearchContextProvider } from "../contexts";
 
 export function RootLayout() {
   return (
@@ -8,7 +8,9 @@ export function RootLayout() {
       <Header />
       <main>
         <FavoriteDrinksContextProvider>
-          <Outlet />
+          <SearchContextProvider>
+            <Outlet />
+          </SearchContextProvider>
         </FavoriteDrinksContextProvider>
       </main>
     </>
