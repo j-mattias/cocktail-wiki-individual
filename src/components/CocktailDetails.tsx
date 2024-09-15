@@ -1,9 +1,10 @@
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData } from "react-router-dom";
 import { IDrinkReformat } from "../interfaces";
 import { FavoriteButton } from "./FavoriteButton";
+import { ListIngredients, ListTags } from ".";
 
 export function CocktailDetails() {
-  const [ cocktail ] = useLoaderData() as IDrinkReformat[];
+  const [cocktail] = useLoaderData() as IDrinkReformat[];
   console.log("cocktail", cocktail);
 
   const computedTags = cocktail.strTags ? cocktail.strTags.split(",") : [];
@@ -14,24 +15,15 @@ export function CocktailDetails() {
         <figure>
           <img src={cocktail.strDrinkThumb} alt={`Image of a ${cocktail.strDrink}`} />
         </figure>
-        <div className="cocktail-tags">
-          {computedTags.map((tag) => (
-            <p className="cocktail-tag">{tag}</p>
-          ))}
-        </div>
+        <ListTags tags={computedTags} />
       </div>
       <div className="cocktail-info">
         <FavoriteButton cocktail={cocktail} />
         <h2>
           {cocktail.strDrink} ({cocktail.strCategory})
         </h2>
-        {cocktail.strCategory}
         <h3>Ingredients</h3>
-        {cocktail.strIngredients.map((item) => (
-          <p>
-            {item.measure} {item.ingredient}
-          </p>
-        ))}
+        <ListIngredients ingredientList={cocktail.strIngredients} />
         <h3>Glass</h3>
         <p>{cocktail.strGlass}</p>
         <h3>Instructions</h3>

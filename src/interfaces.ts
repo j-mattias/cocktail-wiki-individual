@@ -55,9 +55,10 @@ export interface IDrink {
   [key: string]: any;
 }
 
-interface IDrinkIngredients {
+export interface IDrinkIngredients {
   ingredient: string;
   measure: TOptionalString;
+  thumbnail: TOptionalString;
 }
 
 export interface IDrinkReformat {

@@ -40,10 +40,11 @@ export function reformatData(data: IReformatData): IDrinkReformat[] {
       const measure = data[`strMeasure${i}`];
 
       // If there's ingredient and measure add them, if there's only ingredient set null measure
+      // Add a thumbnail property (only used for cocktail info, to avoid unnecessary fetch requests)
       if (ingredient && measure) {
-        drinkObj.strIngredients.push({ ingredient, measure });
+        drinkObj.strIngredients.push({ ingredient, measure, thumbnail: null });
       } else if (ingredient) {
-        drinkObj.strIngredients.push({ ingredient, measure });
+        drinkObj.strIngredients.push({ ingredient, measure, thumbnail: null });
       }
     }
 

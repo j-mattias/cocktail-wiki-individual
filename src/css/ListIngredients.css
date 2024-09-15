@@ -1,0 +1,23 @@
+.list-ingredients {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1rem;
+
+  .ingredient-wrapper {
+    figure {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+
+      img {
+        transition: all 0.3s ease-out;
+
+        &:hover {
+          filter: drop-shadow(0 0 8px);
+          scale: 1.05;
+        }
+      }
+    }
+  }
+}

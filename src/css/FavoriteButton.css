@@ -1,6 +1,7 @@
 .fa-heart {
   font-size: 2rem;
   cursor: pointer;
+  width: fit-content;
 
   &:hover {
     color: var(--offset-font-col);

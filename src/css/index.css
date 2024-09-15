@@ -4,7 +4,9 @@
 @import url("./ErrorPage.css");
 @import url("./FavoriteButton.css");
 @import url("./Header.css");
+@import url("./ListIngredients.css");
 @import url("./ListResults.css");
+@import url("./ListTags.css");
 @import url("./Search.css");
 @import url("./SearchPage.css");
 @import url("./Pagination.css");
@@ -46,6 +48,7 @@ a {
   font-weight: 500;
   color: var(--primary-font-col);
   text-decoration: inherit;
+  transition: all 0.3s ease-out;
 
   &:hover {
     color: var(--offset-font-col);
