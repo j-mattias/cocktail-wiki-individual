@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { IDrinkReformat } from "../interfaces"
+import { TCocktail } from "../interfaces"
 import { FavoriteButton } from "./FavoriteButton";
 
 interface ICocktailCardProps {
-  cocktail: IDrinkReformat;
+  cocktail: TCocktail;
 }
 
 export function CocktailCard({ cocktail }: ICocktailCardProps) {

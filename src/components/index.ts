@@ -2,6 +2,8 @@ export * from "./CocktailCard";
 export * from "./CocktailDetails";
 export * from "./FavoriteButton";
 export * from "./Header";
+export * from "./InfiniteScroll";
+export * from "./IngredientInfo";
 export * from "./ListIngredients";
 export * from "./ListResults";
 export * from "./ListTags";

@@ -87,4 +87,22 @@ export interface IDrinkReformat {
   [key: string]: TOptionalString | IDrinkIngredients[];
 }
 
-export type TDrinkArray = IDrinkReformat[] | [];
+export type TDrinkArray = TCocktail[] | [];
+
+export interface IIngredient {
+  id: string;
+  strABV: TOptionalString;
+  strAlcohol: TOptionalString;
+  strDescription: TOptionalString;
+  strIngredient: string;
+  strType: TOptionalString;
+  thumbnail: string;
+}
+
+export interface IDrinkWithIngredient {
+  idDrink: string;
+  strDrink: string;
+  strDrinkThumb: string;
+}
+
+export type TCocktail = IDrinkReformat | IDrinkWithIngredient;

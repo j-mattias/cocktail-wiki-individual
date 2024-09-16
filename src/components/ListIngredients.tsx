@@ -6,10 +6,14 @@ interface IListIngredientsProps {
 }
 
 export function ListIngredients({ ingredientList }: IListIngredientsProps) {
+  const formatName = (string: string) => {
+    return string.toLowerCase().replace(" ", "-");
+  };
+
   return (
     <section className="list-ingredients">
-      {ingredientList.map((item) => (
-        <Link className="ingredient-wrapper" key={item.ingredient} to={`../ingredient/${item.ingredient}`}>
+      {ingredientList.map((item, i) => (
+        <Link className="ingredient-wrapper" key={`${item.ingredient}-${i}`} to={`../ingredient/${formatName(item.ingredient)}`}>
           <figure>
             <img src={item.thumbnail || ""} alt={`Image of ${item.ingredient}`} />
             <figcaption>

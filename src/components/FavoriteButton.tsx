@@ -1,8 +1,8 @@
 import { useFavoriteDrinksContext } from "../contexts";
-import { IDrinkReformat } from "../interfaces";
+import { TCocktail } from "../interfaces";
 
 interface IFavoriteButtonProps {
-  cocktail: IDrinkReformat;
+  cocktail: TCocktail;
 }
 
 export function FavoriteButton({ cocktail }: IFavoriteButtonProps) {
