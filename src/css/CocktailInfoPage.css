@@ -1,0 +1,17 @@
+.cocktail-info-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  .cocktail-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .cocktail-info-wrapper {
+    display: flex;
+    gap: 2rem;
+  }
+}

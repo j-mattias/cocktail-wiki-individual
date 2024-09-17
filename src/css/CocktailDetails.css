@@ -1,23 +1,16 @@
 .cocktail-details {
   display: flex;
-  gap: 2rem;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: hsl(from var(--offset-col) h s l / 50%);
+  color: var(--primary-font-col);
+  gap: 0.8rem;
 
-  .cocktail-img-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .cocktail-info {
-    padding: 1rem;
-    background-color: hsl(from var(--bg-col) h s calc(l + 30) / 0.2);
-    color: var(--primary-font-col);
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-
-    h2, h3 {
-      color: white;
-    }
+  .cocktail-details__category {
+    border: 2px solid var(--bg-col);
+    border-radius: 8px;
+    padding: 0.6rem 0.8rem;
+    align-self: flex-start;
   }
 }

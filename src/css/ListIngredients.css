@@ -3,7 +3,11 @@
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   gap: 1rem;
 
-  .ingredient-wrapper {
+  .list-ingredients__wrapper {
+    &:hover {
+      color: rgb(255, 229, 174);
+    }
+    
     figure {
       display: flex;
       flex-direction: column;
@@ -14,7 +18,7 @@
         transition: all 0.3s ease-out;
 
         &:hover {
-          filter: drop-shadow(0 0 8px);
+          filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
           scale: 1.05;
         }
       }

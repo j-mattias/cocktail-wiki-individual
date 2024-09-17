@@ -1,9 +1,10 @@
 .fa-heart {
-  font-size: 2rem;
+  font-size: 3rem;
   cursor: pointer;
   width: fit-content;
+  filter: drop-shadow(0 0 4px black);
 
   &:hover {
-    color: var(--offset-font-col);
+    color: var(--offset-col);
   }
 }

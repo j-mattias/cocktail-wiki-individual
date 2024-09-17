@@ -1,9 +1,20 @@
 .search-form {
   display: flex;
   gap: 1rem;
+  width: 70%;
 
   input {
+    flex: 1;
     padding: 0.8rem;
     font-size: 1.2rem;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-color: var(--primary-font-col);
+
+    &:focus-visible {
+      outline: none;
+      border: 2px solid var(--offset-col);
+      background-color: white;
+    }
   }
 }

@@ -1,10 +1,14 @@
 @import url("./App.css");
 @import url("./CocktailCard.css");
 @import url("./CocktailDetails.css");
+@import url("./CocktailInfo.css");
+@import url("./CocktailInfoPage.css");
 @import url("./ErrorPage.css");
 @import url("./FavoriteButton.css");
 @import url("./Header.css");
+@import url("./IngredientDescription.css");
 @import url("./IngredientInfo.css");
+@import url("./IngredientPage.css");
 @import url("./InfiniteScroll.css");
 @import url("./ListIngredients.css");
 @import url("./ListResults.css");
@@ -13,14 +17,18 @@
 @import url("./SearchPage.css");
 @import url("./Pagination.css");
 
-:root {
-  --bg-col: #242424;
-  --primary-font-col: #fde38c;
-  --offset-font-col: #fff0c0;
-  --button-bg-col: bisque;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  color: rgba(255, 255, 255, 0.87);
+:root {
+  --bg-col: #282422;
+  --bg-offset-col: #403A36;
+  --primary-font-col: #EAEAEA;
+  --offset-col: #C1AE92;
+  --button-bg-col: #121212;
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   background-color: var(--bg-col);
 }
 
@@ -36,6 +44,7 @@ body {
   align-items: center;
   min-width: 320px;
   min-height: 100vh;
+  color: var(--primary-font-col);
 }
 
 main {
@@ -47,13 +56,13 @@ main {
 }
 
 a {
-  font-weight: 500;
+  font-weight: 400;
   color: var(--primary-font-col);
   text-decoration: inherit;
   transition: all 0.3s ease-out;
 
   &:hover {
-    color: var(--offset-font-col);
+    color: var(--offset-col);
   }
 }
 
@@ -65,15 +74,17 @@ img {
 
 button {
   background-color: var(--button-bg-col);
-  border: 2px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  color: var(--primary-font-col);
+  border: none;
+  border-radius: 2rem;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.25s ease-out;
 
   &:hover {
-    border-color: black;
+    background-color: black;
   }
 }

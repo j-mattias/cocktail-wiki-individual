@@ -4,9 +4,10 @@
   gap: 0.5rem;
 
   .cocktail-tag {
-    padding: 0.2rem 0.4rem;
+    padding: 0.4rem 0.6rem;
     border-radius: 4px;
     background-color: var(--button-bg-col);
-    color: black;
+    font-weight: 600;
+    text-transform: uppercase;
   }
 }

@@ -37,7 +37,7 @@ export function InfiniteScroll({ listItems, resultCount }: IInfiniteScrollProps)
 
   return (
     <section className="infinite-scroll">
-      <h2>Used in</h2>
+      <h2>Ingredient In</h2>
       {items.map((item) => (
         <CocktailCard cocktail={item} key={item.idDrink} />
       ))}

@@ -1,7 +1,7 @@
 .header {
   display: flex;
   width: 100%;
-  background-color: rgb(44, 44, 44);
+  background-color: var(--bg-offset-col);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   margin-bottom: 2rem;
 
@@ -15,20 +15,20 @@
       font-weight: 600;
 
       &:hover:not(.navbar__link--title) {
-        background-color: #fde38c;
-        color: rgb(27, 27, 27);
+        background-color: var(--offset-col);
+        color: var(--bg-col);
       }
     }
 
     .navbar__link--title {
       margin-right: auto;
-      color: #ffd753;
+      color: var(--primary-font-col);
       font-weight: 800;
       letter-spacing: .1rem;
     }
 
     a.active {
-      box-shadow: inset 0 -4px 0 #fde38c;
+      box-shadow: inset 0 -6px 0 var(--offset-col);
     }
   }
 }

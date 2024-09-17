@@ -1,5 +1,26 @@
 .cocktail-card {
-  background-color: rgb(138, 130, 120);
+  background-color: hsl(from var(--offset-col) h s l / 50%);
+  border-radius: 8px;
+
+  .cocktail-card__figure {
+    display: grid;
+
+    .fa-heart,
+    .cocktail-card__img {
+      grid-row: 1 / -1;
+      grid-column: 1 / -1;
+    }
+
+    .fa-heart {
+      padding: 1rem;
+      justify-self: end;
+      align-self: start;
+    }
+
+    .cocktail-card__img {
+      border-radius: 8px 8px 0 0;
+    }
+  }
 
   .cocktail-card__details {
     padding: 1rem;
@@ -18,7 +39,13 @@
       padding: 1rem;
       text-align: center;
       font-weight: 600;
-      background-color: rgb(78, 74, 68);
+      background-color: var(--button-bg-col);
+      border-radius: 8px;
+
+      &:hover {
+        color: inherit;
+        background-color: black;
+      }
     }
   }
 }

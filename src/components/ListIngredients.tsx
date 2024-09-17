@@ -13,7 +13,7 @@ export function ListIngredients({ ingredientList }: IListIngredientsProps) {
   return (
     <section className="list-ingredients">
       {ingredientList.map((item, i) => (
-        <Link className="ingredient-wrapper" key={`${item.ingredient}-${i}`} to={`../ingredient/${formatName(item.ingredient)}`}>
+        <Link className="list-ingredients__wrapper" key={`${item.ingredient}-${i}`} to={`../ingredient/${formatName(item.ingredient)}`}>
           <figure>
             <img src={item.thumbnail || ""} alt={`Image of ${item.ingredient}`} />
             <figcaption>

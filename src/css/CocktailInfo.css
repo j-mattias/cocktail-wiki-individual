@@ -1,0 +1,10 @@
+.cocktail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1 0 33%;
+
+  img {
+    border-radius: 8px;
+  }
+}

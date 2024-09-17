@@ -1,0 +1,12 @@
+.ingredient-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  .ingredient-wrapper {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    gap: 2rem;
+  }
+}
