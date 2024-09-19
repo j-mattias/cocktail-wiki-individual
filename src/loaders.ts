@@ -1,7 +1,8 @@
 import { Params } from "react-router-dom";
-import { reformatData } from "./helpers";
+import { fetchData, reformatData } from "./helpers";
 
 type TParams = Params<string>;
+
 interface IParams {
   params: TParams;
 }
@@ -9,14 +10,14 @@ interface IParams {
 // Get a random cocktail when loading the homepage
 export async function randomCocktailLoader() {
   try {
-    const response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php");
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch cocktail");
-    }
+    const randomCocktailUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+    const randomCocktailData = await fetchData(
+      randomCocktailUrl,
+      `Failed to fetch random cocktail`
+    );
 
     // Convert to json and reformat the data before returning it
-    return reformatData(await response.json());
+    return reformatData(randomCocktailData);
   } catch (error: any) {
     throw new Error("Something went wrong", error.message);
   }
@@ -25,16 +26,11 @@ export async function randomCocktailLoader() {
 // Get the cocktail by id, by accessing it through the route params
 export async function cocktailInfoLoader({ params }: IParams) {
   try {
-    const response = await fetch(
-      "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + params.id
-    );
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch cocktail");
-    }
+    const cocktailInfoUrl = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${params.id}`;
+    const cocktailInfoData = await fetchData(cocktailInfoUrl, `Failed to fetch cocktail info`);
 
     // Store the reformatted data and destructure the cocktail to add thumbnails for ingredients
-    const reformattedData = reformatData(await response.json());
+    const reformattedData = reformatData(cocktailInfoData);
     const [cocktail] = reformattedData;
 
     // Wait for all of the thumbnails to be fetched before returning the data
@@ -73,43 +69,27 @@ export async function getIngredientInfo({ params }: IParams) {
   try {
     // Format the ingredient string and get drinks that use the ingredient
     let formatName = params.name ? params.name.replace("-", "+") : "";
-    const { drinks } = await getDrinksWithIngredient(formatName);
+    const drinksWithIngredientUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${formatName}`;
+
+    // Get list of drirnks made with the ingredient
+    const { drinks } = await fetchData(
+      drinksWithIngredientUrl,
+      `Failed to fetch drinks containing ${formatName}`
+    );
 
     // Get ingredient information
-    const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${formatName}`;
-    const response = await fetch(url);
+    const ingredientInfoUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${formatName}`;
+    const ingredientData = await fetchData(ingredientInfoUrl, `Failed to fetch ${formatName} info`);
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch ingredient info");
-    }
-
-    // Convert data to json and destructure ingredient info object
-    const data = await response.json();
-    const [ingredient] = data.ingredients;
+    // Destructure ingredient info object out of array
+    const [ingredient] = ingredientData.ingredients;
 
     // Format the ingredient name to get the thumbnail and add it to the ingredient object
     formatName = formatName.replace("+", " ");
     const thumbnail = await getIngredientThumb(formatName);
     ingredient.thumbnail = thumbnail;
 
-    return {ingredient, drinks};
-  } catch (error: any) {
-    throw new Error("Something went wrong", error.message);
-  }
-}
-
-// Get drinks that use the ingredient being requested
-async function getDrinksWithIngredient(ingredient: string) {
-  try {
-    const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`;
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch drinks containing ${ingredient}`);
-    }
-    const data = await response.json();
-
-    return data;
+    return { ingredient, drinks };
   } catch (error: any) {
     throw new Error("Something went wrong", error.message);
   }
