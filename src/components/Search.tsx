@@ -5,12 +5,47 @@ import { useSearchParams } from "react-router-dom";
 
 export function Search() {
   const BASE_URL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
+  const errorMessage = "Failed to fetch cocktails";
 
   const [input, setInput] = useState<string>("");
   const [error, setError] = useState<string>("");
   const { setSearchResults } = useSearchContext();
 
   const [searchParams, setSearchParams] = useSearchParams();
+
+  // Handles fetching search results, updating params and catching errors
+  const fetchResults = async (input: string, notOkMsg: string, page = "1") => {
+    try {
+      const url = BASE_URL + input;
+      const results = await fetchData(url, notOkMsg);
+
+      // If no drinks were found display a message
+      if (!results.drinks) {
+        setError(`Could not find drink "${input}"`);
+        setSearchResults(null);
+        setSearchParams({ q: input, page });
+        return;
+      }
+
+      // Reformat the results if drinks were found
+      const reformattedResults = reformatData(results);
+      setSearchResults(reformattedResults);
+
+      // Update the search parameters in the url
+      setSearchParams({ q: input, page });
+      
+      setError("");
+    } catch (error: any) {
+      setSearchResults(null);
+      setError(error.message);
+    }
+  };
+
+  // Fetch cocktails when form is submitted
+  const fetchCocktails: React.FormEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault();
+    await fetchResults(input, errorMessage);
+  };
 
   useEffect(() => {
     // Get search params
@@ -19,60 +54,15 @@ export function Search() {
 
     // If a query was in the url fetch the results
     if (q) {
-      const search = async () => {
-        try {
-          // Fetch and reformat data
-          const results = await fetchData(BASE_URL + q, `Failed to fetch ${q}`);
-
-          if (!results.drinks) {
-            setError(`Could not find drink "${q}"`);
-            setSearchResults(null);
-            return;
-          }
-
-          const reformattedResults = reformatData(results);
-
-          setSearchResults(reformattedResults);
-
-          setSearchParams({ q, page });
-          setError("");
-        } catch (error: any) {
-          setError(error.message);
-        }
+      const loadResults = async () => {
+        await fetchResults(q, errorMessage, page);
       };
-      search();
+      loadResults();
     }
 
     // Clear out search results when component unmounts
     return () => setSearchResults(null);
-  }, [])
-
-  const fetchCocktails: React.FormEventHandler<HTMLFormElement> = async (e) => {
-    e.preventDefault();
-
-    try {
-      const results = await fetchData(BASE_URL + input, `Failed to fetch ${input}`);
-
-      // Display error if drink was not found
-      if (!results.drinks) {
-        setError(`Could not find drink "${input}"`);
-        setSearchResults(null);
-        return;
-      }
-
-      // Reformat and store search results
-      const reformattedResults = reformatData(results);
-      setSearchResults(reformattedResults);
-
-      // Set the search params and reset error
-      setSearchParams({ q: input, page: "1" });
-      setError("");
-      
-    } catch(error: any) {
-      setSearchResults(null);
-      setError(error.message);
-    }
-  };
+  }, []);
 
   return (
     <>
