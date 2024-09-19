@@ -1,3 +1,4 @@
+export * from "./CocktailErrorPage";
 export * from "./CocktailInfoPage";
 export * from "./ErrorPage";
 export * from "./FavoritePage";

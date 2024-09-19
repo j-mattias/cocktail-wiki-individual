@@ -19,7 +19,7 @@ export async function randomCocktailLoader() {
     // Convert to json and reformat the data before returning it
     return reformatData(randomCocktailData);
   } catch (error: any) {
-    throw new Error("Something went wrong", error.message);
+    throw new Error("Failed to fetch random cocktail");
   }
 }
 
@@ -42,7 +42,7 @@ export async function cocktailInfoLoader({ params }: IParams) {
 
     return reformattedData;
   } catch (error: any) {
-    throw new Error("Something went wrong", error.message);
+    throw new Error(`Failed to fetch cocktail information`);
   }
 }
 
@@ -60,7 +60,7 @@ async function getIngredientThumb(ingredient: string) {
     // Return the response url, this endpoint doesn't respond with JSON
     return response.url;
   } catch (error: any) {
-    throw new Error("Something went wrong", error.message);
+    throw new Error("Something went wrong");
   }
 }
 
@@ -91,6 +91,6 @@ export async function getIngredientInfo({ params }: IParams) {
 
     return { ingredient, drinks };
   } catch (error: any) {
-    throw new Error("Something went wrong", error.message);
+    throw new Error(`Failed to fetch ingredient information`);
   }
 }
