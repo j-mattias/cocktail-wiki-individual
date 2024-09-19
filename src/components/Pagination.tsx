@@ -1,20 +1,18 @@
 interface IPaginationProps {
-  totalPosts: number;
-  resultsPerPage: number;
-  handleClick: (page: number) => void;
+  numPages: number;
+  handleClick: (page: string) => void;
   currentPage: number;
 }
 
 export function Pagination({
-  totalPosts,
-  resultsPerPage,
+  numPages,
   handleClick,
   currentPage,
 }: IPaginationProps) {
   const pages = [];
 
   // Calculate the amount of pages the total amount of posts will require
-  for (let i = 1; i <= Math.ceil(totalPosts / resultsPerPage); i++) {
+  for (let i = 1; i <= numPages; i++) {
     pages.push(i);
   }
 
@@ -24,7 +22,7 @@ export function Pagination({
         <button
           className={page === currentPage ? "activePage" : ""}
           key={page}
-          onClick={() => handleClick(page)}
+          onClick={() => handleClick(page.toString())}
         >
           {page}
         </button>
