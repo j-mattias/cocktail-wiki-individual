@@ -1,0 +1,48 @@
+.scroll-to-top {
+  --size: 4rem;
+  --bottom-shown: 6rem;
+  --bottom-hidden: -5rem;
+
+  width: var(--size);
+  height: var(--size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-font-col);
+
+  border: 4px solid var(--offset-col);
+  border-radius: 50%;
+  background-color: var(--button-bg-col);
+  padding: 1rem;
+  position: fixed;
+  left: calc(50% - (var(--size) / 2));
+  bottom: var(--bottom-hidden);
+
+  cursor: pointer;
+}
+
+.slide-in {
+  animation: slide-in 0.3s ease-out forwards;
+}
+
+.slide-out {
+  animation: slide-out 0.3s ease-out forwards;
+}
+
+@keyframes slide-in {
+  from {
+    bottom: var(--bottom-hidden);
+  }
+  to {
+    bottom: var(--bottom-shown);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    bottom: var(--bottom-shown);
+  }
+  to {
+    bottom: var(--bottom-hidden);
+  }
+}

@@ -13,6 +13,7 @@
 @import url("./ListResults.css");
 @import url("./ListTags.css");
 @import url("./Pagination.css");
+@import url("./ScrollToTop.css");
 @import url("./Search.css");
 @import url("./SearchPage.css");
 @import url("./utility.css");
@@ -38,6 +39,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -53,6 +58,7 @@ main {
   align-items: center;
   gap: 2rem;
   width: 100%;
+  position: relative;
 }
 
 a {

@@ -11,4 +11,5 @@ export * from "./ListResults";
 export * from "./ListTags";
 export * from "./RandomizeButton";
 export * from "./Pagination";
+export * from "./ScrollToTop";
 export * from "./Search";
