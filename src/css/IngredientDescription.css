@@ -1,9 +1,37 @@
 .ingredient-description {
-  background-color: hsl(from var(--offset-col) h s l / 50%);
+  --background-color: #75695a;
+  background-color: var(--background-color);
   padding: 1rem;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   height: fit-content;
+
+  .ingredient-description__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 272px;
+    transition: max-height 0.6s ease-out;
+    overflow: hidden;
+  }
+
+  button {
+    margin-top: auto;
+    position: relative;
+  }
+}
+
+.taper-text{
+  &::before {
+    position: absolute;
+    content: "";
+    top: -7rem;
+    left: 0;
+    height: 7rem;
+    width: 100%;
+    background: linear-gradient(to bottom, transparent, var(--background-color) 80%);
+    pointer-events: none;
+  }
 }
