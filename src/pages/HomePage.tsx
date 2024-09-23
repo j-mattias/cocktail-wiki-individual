@@ -3,8 +3,7 @@ import { IDrinkReformat } from "../interfaces";
 import { CocktailCard, RandomizeButton } from "../components";
 
 export function HomePage() {
-  const randomCocktailData = useLoaderData() as IDrinkReformat[];
-  const randomCocktail = randomCocktailData[0];
+  const [randomCocktail] = useLoaderData() as IDrinkReformat[];
 
   return (
     <>
