@@ -22,7 +22,7 @@ export function ScrollToTop() {
 
   return (
     <i
-      className={`scroll-to-top fa-solid fa-arrow-up fa-2x ${showToTop ? "slide-in" : "slide-out"}`}
+      className={`scroll-to-top fa-solid fa-arrow-up fa-2x ${showToTop ? "slide-in" : ""}`}
       onClick={handleToTop}
     ></i>
   );

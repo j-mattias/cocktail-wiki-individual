@@ -17,32 +17,13 @@
   position: fixed;
   left: calc(50% - (var(--size) / 2));
   bottom: var(--bottom-hidden);
+  transition: bottom 0.3s ease-out;
 
   cursor: pointer;
+
+  box-shadow: 0 0 8px black;
 }
 
 .slide-in {
-  animation: slide-in 0.3s ease-out forwards;
-}
-
-.slide-out {
-  animation: slide-out 0.3s ease-out forwards;
-}
-
-@keyframes slide-in {
-  from {
-    bottom: var(--bottom-hidden);
-  }
-  to {
-    bottom: var(--bottom-shown);
-  }
-}
-
-@keyframes slide-out {
-  from {
-    bottom: var(--bottom-shown);
-  }
-  to {
-    bottom: var(--bottom-hidden);
-  }
+  bottom: var(--bottom-shown);
 }
