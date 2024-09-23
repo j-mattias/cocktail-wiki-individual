@@ -21,6 +21,12 @@ export function IngredientInfo({ ingredient }: IIngredientInfoProps) {
             <p>{ingredient.strType}</p>
           </div>
         )}
+        {ingredient.strABV && (
+          <div className="ingredient-info__wrapper">
+            <h4>ABV:</h4>
+            <p>{ingredient.strABV}%</p>
+          </div>
+        )}
       </div>
     </aside>
   );
