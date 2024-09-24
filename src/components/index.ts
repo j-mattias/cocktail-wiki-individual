@@ -9,6 +9,7 @@ export * from "./IngredientInfo";
 export * from "./ListIngredients";
 export * from "./ListResults";
 export * from "./ListTags";
+export * from "./Loading";
 export * from "./RandomizeButton";
 export * from "./Pagination";
 export * from "./ScrollToTop";
