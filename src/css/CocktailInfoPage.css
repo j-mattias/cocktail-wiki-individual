@@ -1,9 +1,4 @@
 .cocktail-info-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-
   .cocktail-title-wrapper {
     display: flex;
     align-items: center;

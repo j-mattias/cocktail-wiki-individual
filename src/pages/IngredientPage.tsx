@@ -15,7 +15,7 @@ export function IngredientPage() {
 
   console.log(ingredient, drinks);
   return (
-    <section className="ingredient-page">
+    <section className="ingredient-page flex-col">
       <h1>{ingredient.strIngredient}</h1>
       <div className="ingredient-wrapper">
         <IngredientInfo ingredient={ingredient} />

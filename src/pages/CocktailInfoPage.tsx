@@ -6,7 +6,7 @@ export function CocktailInfoPage() {
   const [cocktail] = useLoaderData() as IDrinkReformat[];
 
   return (
-    <section className="cocktail-info-page">
+    <section className="cocktail-info-page flex-col">
       <div className="cocktail-title-wrapper">
         <h1>{cocktail.strDrink}</h1>
         <FavoriteButton cocktail={cocktail} />

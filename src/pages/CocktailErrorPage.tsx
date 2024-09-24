@@ -4,7 +4,7 @@ export function CocktailErrorPage() {
   const error = useRouteError() as Error;
 
   return (
-    <section className="error-page">
+    <section className="error-page flex-col">
       <h1>{error.message}</h1>
       <Link className="go-home" to="/">
         Go Home

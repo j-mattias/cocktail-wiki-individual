@@ -6,10 +6,10 @@ export function HomePage() {
   const [randomCocktail] = useLoaderData() as IDrinkReformat[];
 
   return (
-    <>
+    <section className="home-page flex-col">
       <h1>Random Cocktail</h1>
       <CocktailCard cocktail={randomCocktail} />
       <RandomizeButton />
-    </>
+    </section>
   );
 }

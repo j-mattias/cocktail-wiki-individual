@@ -7,12 +7,13 @@
   flex-direction: column;
   gap: 1rem;
   height: fit-content;
+  max-height: 100%;
 
   .ingredient-description__container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    max-height: 272px;
+    max-height: 313px;
     transition: max-height 0.6s ease-out;
     overflow: hidden;
   }
