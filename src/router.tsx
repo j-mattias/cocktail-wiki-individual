@@ -14,14 +14,11 @@ export const router = createBrowserRouter(
           loader={cocktailInfoLoader}
           path="cocktail-info/:id"
         />
-        <Route
-          element={<IngredientPage />}
-          loader={getIngredientInfo}
-          path="ingredient/:name"
-        />
+        <Route element={<IngredientPage />} loader={getIngredientInfo} path="ingredient/:name" />
       </Route>
       <Route element={<FavoritePage />} path="favorites" />
       <Route element={<ErrorPage />} path="*" />
     </Route>
-  )
+  ),
+  { basename: "/cocktail-wiki-individual/" }
 );
